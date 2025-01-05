@@ -1,0 +1,177 @@
+<%- include("partials/header.ejs") %>
+<style>
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .course-detail {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .course-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+
+  .course-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0 20px;
+  }
+
+  li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+  }
+
+  .back-button {
+    display: block;
+    width: 120px;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+  .courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .course-detail {
+    flex: 1 1 calc(50% - 20px); /* Ensures two columns */
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 768px) {
+    .course-detail {
+      flex: 1 1 100%; /* Stacks courses on smaller screens */
+    }
+  }
+  @media (max-width: 480px) {
+    .text h1 u {
+      font-size: 22px;
+    }
+  }
+</style>
+<body>
+  <center>
+    <div class="text">
+      <h1><u>Get detailed information about offered Courses</u></h1>
+    </div>
+  </center>
+  <br /><br />
+  <div class="container">
+    <div class="courses-container">
+      <div class="course-detail">
+        <div class="course-title">C & C++ Programming</div>
+        <div class="course-desc">
+          Master the fundamentals of programming with C and C++. Topics covered
+          include:
+        </div>
+        <ul>
+          <li>Introduction to C and C++</li>
+          <li>Data Types and Variables</li>
+          <li>Control Structures and Functions</li>
+          <li>Object-Oriented Programming with C++</li>
+          <li>Error Handling and Debugging</li>
+        </ul>
+      </div>
+
+      <div class="course-detail">
+        <div class="course-title">Python Programming</div>
+        <div class="course-desc">
+          Dive into Python programming and its applications. Topics covered
+          include:
+        </div>
+        <ul>
+          <li>Python Syntax and Data Structures</li>
+          <li>File Handling and Modules</li>
+          <li>Web Scraping with Python</li>
+          <li>Data Visualization and Analysis</li>
+          <li>Introduction to Machine Learning with Python</li>
+        </ul>
+      </div>
+
+      <div class="course-detail">
+        <div class="course-title">
+          Communicative English & Personality Development
+        </div>
+        <div class="course-desc">
+          Enhance your communication skills and build confidence. Topics covered
+          include:
+        </div>
+        <ul>
+          <li>Grammar and Vocabulary Building</li>
+          <li>Public Speaking and Presentation Skills</li>
+          <li>Interview Preparation</li>
+          <li>Interpersonal Skills</li>
+          <li>Time and Stress Management</li>
+        </ul>
+      </div>
+
+      <div class="course-detail">
+        <div class="course-title">Practical Accounting & Audit Process</div>
+        <div class="course-desc">
+          Gain hands-on experience in accounting and auditing. Topics covered
+          include:
+        </div>
+        <ul>
+          <li>Basics of Accounting</li>
+          <li>Preparation of Financial Statements</li>
+          <li>GST and Taxation</li>
+          <li>Internal and External Audits</li>
+          <li>Practical Case Studies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a href="/education" class="back-button">Back</a>
+</body>
+<%- include("partials/footer.ejs") %>

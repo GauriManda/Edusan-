@@ -1,0 +1,242 @@
+<%- include("partials/header.ejs") %>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  .carousel-button.left {
+    left: 10px;
+  }
+
+  .carousel-button.right {
+    right: 10px;
+  }
+
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .row-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  .row-boxes .box {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .box:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  }
+  .row-boxes .box h3 {
+    margin-bottom: 10px;
+    color: white;
+  }
+  .row-boxes .box p {
+    font-size: 14px;
+    color: white;
+  }
+  /* Style for the Box container */
+  .Box {
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers content horizontally */
+    margin: 2px auto; /* Centers the Box on the page */
+  }
+
+  .container {
+    display: flex; /* Arrange items in a row */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+
+  .container img {
+    max-width: 100%; /* Ensure images resize responsibly */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .Box-1 img {
+    margin-left: 20px;
+    height: 90%;
+    width: 90%;
+  }
+
+  .Box-2 img {
+    height: 50%;
+    width: 95%;
+  }
+
+  /* Responsive Styles */
+
+  @media screen and (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      display: none;
+    }
+    .nav-links.active {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+    }
+
+    .row-boxes .box {
+      flex: 1 1 calc(50% - 20px); /* 2 boxes per row for tablets */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .foundation-name {
+      font-size: 1.1rem;
+    }
+
+    .logo {
+      height: 30px;
+    }
+
+    .btn {
+      font-size: 0.9rem;
+    }
+
+    .row-boxes {
+      justify-content: space-evenly;
+      margin-top: 20px;
+    }
+    .row-boxes .box {
+      flex: 1;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    .row-boxes .box h3 {
+      font-size: 10px;
+    }
+    .row-boxes .box p {
+      font-size: 8px;
+    }
+  }
+</style>
+<body>
+  <main>
+    <div class="carousel">
+      <div class="carousel-slides">
+        <div
+          class="carousel-slide"
+          style="background-image: url('events/clg.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('events/clg2.jpg')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('events/constitution1.jpg')"
+        ></div>
+      </div>
+      <button class="carousel-button left" onclick="goToPrevious()">
+        &#10094;
+      </button>
+      <button class="carousel-button right" onclick="goToNext()">
+        &#10095;
+      </button>
+    </div>
+
+    <div class="row-boxes">
+      <div class="box">
+        <h3>
+          Education is the Key Unlock a brighter future with quality education.
+        </h3>
+      </div>
+      <div class="box">
+        <h3>
+          Empower Through Learning Knowledge is the pathway to empowerment.
+        </h3>
+      </div>
+      <div class="box">
+        <h3>
+          Shape Young Minds Build a foundation of success through education.
+        </h3>
+      </div>
+      <div class="box">
+        <h3>
+          Bridge to Opportunities Education opens doors to endless
+          possibilities.
+        </h3>
+      </div>
+    </div>
+
+    <br /><br />
+    <div class="container">
+      <div class="Box-1">
+        <img src="images/gif.gif" alt="Promotional Banner" />
+      </div>
+      <div class="Box-2">
+        <img src="images/1.png" alt="Promotional Banner" />
+      </div>
+    </div>
+    <br /><br /><br /><br />
+  </main>
+  <script>
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const slides = document.querySelector(".carousel-slides");
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function goToPrevious() {
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToNext() {
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    // Auto-play functionality
+    setInterval(() => {
+      goToNext();
+    }, 3000);
+  </script>
+</body>
+
+<%- include("partials/footer.ejs") %>

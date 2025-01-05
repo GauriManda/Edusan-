@@ -1,0 +1,211 @@
+<%- include("partials/header.ejs") %>
+<style>
+  body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1.display-4 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .col-lg-7 {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .col-lg-4 {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+  }
+
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 55vh; /* Reduced height */
+    overflow: hidden;
+  }
+
+  .carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    background-size: contain; /* Ensures the image fits without distortion */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent tiling */
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures images fit the container without distortion */
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  .carousel-button.left {
+    left: 10px;
+  }
+
+  .carousel-button.right {
+    right: 10px;
+  }
+
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+
+    .col-lg-4 {
+      max-width: 100%;
+    }
+
+    .col-lg-7 {
+      padding: 0;
+    }
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h1 class="display-4">Edusan Foundation Internship Program</h1>
+        <ul>
+          <li>
+            <strong>NGO Internships:</strong> 
+            <li>Duration: 15 days to 1 month.</li>
+            <li>Roles: Volunteers or interns assisting in education drives,
+            healthcare camps, environment projects, etc. </li>
+            <li>Learning Outcomes:
+            Teamwork, communication skills, and grassroots project experience.</li>
+            <li>Benefits: Certificates and exposure to social impact initiatives.</li>
+            <li>Eligibility: Open to students and professionals passionate about
+            community service.</li>
+          </li>
+          <li>
+            <strong>Technical Internships:</strong>
+          </li>
+
+          <li>Duration: 1 month to 6 months.</li>
+          <li>
+            Focus: Hands-on projects in web development, app development, AI/ML,
+            data science, IoT, etc.
+          </li>
+          <li>
+            Learning Outcomes: Practical experience, industry-relevant skills,
+            and mentorship.
+          </li>
+          <li>
+            Benefits: Certificates, networking opportunities, and career
+            readiness.
+          </li>
+          <li>
+            Eligibility: Engineering students or tech enthusiasts with basic
+            knowledge of the domain.
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="carousel">
+          <div class="carousel-slides">
+            <div
+              class="carousel-slide"
+              style="background-image: url('social/blood.jpeg')"
+            ></div>
+            <div
+              class="carousel-slide"
+              style="background-image: url('events/teacher.jpg')"
+            ></div>
+            <div
+              class="carousel-slide"
+              style="background-image: url('events/youth.jpg')"
+            ></div>
+          </div>
+          <button class="carousel-button left" onclick="goToPrevious()">
+            &#10094;
+          </button>
+          <button class="carousel-button right" onclick="goToNext()">
+            &#10095;
+          </button>
+        </div>
+      </div>
+    </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let currentIndex = 0;
+    function updateCarousel() {
+      const slides = document.querySelector(".carousel-slides");
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    function goToPrevious() {
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+    function goToNext() {
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    } // Auto-play functionality
+    setInterval(() => {
+      goToNext();
+    }, 3000);
+  </script>
+</body>
+<%- include("partials/footer.ejs") %>

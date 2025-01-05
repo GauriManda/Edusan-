@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      footer {
+        background: linear-gradient(45deg, #6a11cb, #2575fc);
+        padding: 20px 0;
+        border-top: 2px solid #333;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+      }
+
+      .footer-logo {
+        flex: 1;
+      }
+
+      .footer-logo img {
+        max-width: 150px;
+      }
+
+      .footer-contact {
+        flex: 2;
+      }
+
+      .footer-contact h4 {
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .footer-contact ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-contact ul li {
+        margin-bottom: 8px;
+        color: white;
+      }
+
+      .footer-contact ul li i {
+        margin-right: 8px;
+        color: white;
+      }
+
+      .footer-social {
+        flex: 1;
+        text-align: right;
+      }
+
+      .footer-social a {
+        margin: 0 8px;
+        display: inline-block;
+      }
+
+      .footer-social img {
+        width: 30px;
+        height: 30px;
+      }
+      @media screen and (max-width: 768px) {
+        .footer-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-social {
+          margin-top: 15px;
+          text-align: center;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .footer-logo img {
+          max-width: 90px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <footer>
+      <div class="footer-container">
+        <!-- Foundation Logo -->
+        <div class="footer-logo">
+          <img src="/images/logo.jpeg" alt="Edusan Foundation Logo" />
+        </div>
+
+        <!-- Contact Details -->
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> +91 91724 48760</li>
+            <li><i class="fas fa-envelope"></i> nileshhkale@gmail.com</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> 542, New Subhedar Lay Out,
+              Thawre Colony Road, Nagpur-440024(Maharashtra)
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <p>&copy; 2024 Edusan Foundation. All Rights Reserved.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank">
+            <img src="/images/fface.webp" alt="Facebook" />
+          </a>
+          <a href="https://twitter.com" target="_blank">
+            <img src="/images/finsta.png" alt="Twitter" />
+          </a>
+          <a href="https://instagram.com" target="_blank">
+            <img src="/images/fyoutube.png" alt="Instagram" />
+          </a>
+          <a href="https://instagram.com" target="_blank">
+            <img src="/images/Whatsapp.png" alt="Instagram" />
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

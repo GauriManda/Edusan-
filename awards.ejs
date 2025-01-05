@@ -1,0 +1,97 @@
+<%- include("partials/header.ejs") %>
+<style>
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  .hero {
+    text-align: center;
+
+    color: Black;
+  }
+
+  .hero h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  /* Certificates Section */
+  .certificates-section {
+    padding: 40px 20px; /* Add space around the section */
+    text-align: center; /* Center-align the heading */
+  }
+
+  .certificates-section h2 {
+    font-size: 24px; /* Adjust the font size of the heading */
+    margin-bottom: 20px; /* Space below the heading */
+  }
+
+  .certificates-grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+    gap: 20px; /* Space between images */
+    justify-items: center; /* Center images in their grid cells */
+  }
+
+  .certificates-grid img {
+    width: 100%; /* Make images responsive */
+    max-width: 200px; /* Set maximum width for each image */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ddd; /* Add a border around images */
+    border-radius: 5px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+    transition: transform 0.3s; /* Smooth zoom effect on hover */
+  }
+
+  .certificates-grid img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  }
+</style>
+<body>
+
+    <div class="hero">
+      <h2>Recognizing Excellence</h2>
+      <p>
+        Explore our prestigious awards and certificates that celebrate our
+        achievements in education and community service.
+      </p>
+    </div>
+  </header>
+
+  <div class="certificates-section">
+    <br /><br />
+    <div class="certificates-grid">
+      <img src="images/c1.jfif" alt="Certificate 1" />
+      <img src="images/c2.jpg" alt="Certificate 2" />
+      <img src="images/c3.jpg" alt="Certificate 3" />
+      <img src="images/c4.jfif" alt="Certificate 4" />
+      <img src="images/c5.jpeg" alt="Certificate 5" />
+      <img src="images/c6.jpg" alt="Certificate 6" />
+      <img src="images/c7.jfif" alt="Certificate 7" />
+      <img src="images/c8.jpeg" alt="Certificate 8" />
+    </div>
+  </div>
+  <br /><br /></body>
+  <%- include("partials/footer.ejs") %>
+

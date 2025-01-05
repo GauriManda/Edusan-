@@ -1,0 +1,184 @@
+<%- include("partials/header.ejs") %>
+<style>
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+  }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  /* Header Styles */
+  .header {
+    text-align: center;
+    padding: 50px 20px;
+    color: maroon;
+  }
+  .header h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  .header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+  }
+
+  /* Testimonials Section */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .testimonial {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  .client-photo {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  .testimonial h3 {
+    margin: 10px 0 5px;
+    font-size: 1.5em;
+  }
+  .role {
+    font-size: 0.9em;
+    color: #777;
+  }
+  .feedback {
+    font-style: italic;
+    font-size: 1em;
+    margin-top: 15px;
+    line-height: 1.5;
+  }
+</style>
+<body>
+  <header class="header">
+    <h1>What People say about us</h1>
+    <p>Your feedback inspires us to grow.</p>
+  </header>
+  <section class="testimonials">
+    <div class="testimonial">
+      <img src="images/dharna.png" alt="Client 1" class="client-photo" />
+      <h3>Dharna Watkar</h3>
+      <p class="role">Student of Engineering college.</p>
+      <p class="feedback">
+        "The Edusan Foundation has been instrumental in transforming education
+        for underprivileged children. Their focus on ensuring access to quality
+        education and personalized mentorship has helped my son excel in school.
+        Thanks to their support, he now dreams of becoming an engineer. This
+        foundation truly changes lives through education."
+      </p>
+    </div>
+    <div class="testimonial">
+      <img src="images/gauri.jpg" alt="Client 2" class="client-photo" />
+      <h3>Gauri Ganthade</h3>
+      <p class="role">Student of Engineering college</p>
+      <p class="feedback">
+        "The Edusan Foundation stands out because of its innovative approach to
+        education. Their programs are not just about academics but also about
+        developing life skills and critical thinking. I am proud to support an
+        organization that is so deeply committed to empowering young learners."
+      </p>
+    </div>
+    <div class="testimonial">
+      <img src="images/amol.jpeg" alt="Client 3" class="client-photo" />
+      <h3>Amol</h3>
+      <p class="role">Teacher of Edusan Foundation</p>
+      <p class="feedback">
+        "As a teacher, I have seen the impact of Edusan Foundation’s work
+        firsthand. Their dedication to improving literacy rates and providing
+        resources to schools has uplifted our community. The foundation’s
+        workshops for both students and educators have been invaluable. They are
+        truly building a brighter future for all."
+      </p>
+    </div>
+  </section>
+  <script>
+    // Function to display the testimonial by index
+    function showTestimonial(index) {
+      const testimonials = document.querySelectorAll(".testimonial-item");
+      testimonials.forEach((testimonial, i) => {
+        if (i === index) {
+          testimonial.classList.add("active");
+        } else {
+          testimonial.classList.remove("active");
+        }
+      });
+    }
+
+    // Navigate to the previous testimonial
+    function prevTestimonial() {
+      const testimonials = document.querySelectorAll(".testimonial-item");
+      currentTestimonial =
+        (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Navigate to the next testimonial
+    function nextTestimonial() {
+      const testimonials = document.querySelectorAll(".testimonial-item");
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      showTestimonial(currentTestimonial);
+    }
+
+    // Initialize the first testimonial as active
+    document.addEventListener("DOMContentLoaded", () => {
+      showTestimonial(currentTestimonial);
+
+      // Add event listeners for navigation buttons
+      document
+        .querySelector(".carousel-control.prev")
+        .addEventListener("click", prevTestimonial);
+      document
+        .querySelector(".carousel-control.next")
+        .addEventListener("click", nextTestimonial);
+    });
+    setInterval(() => {
+      nextTestimonial();
+    }, 3000);
+
+    // Placeholder for interactivity
+    // You can add animations or dynamic functionality here
+
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Testimonial page loaded successfully!");
+
+      // Example: Add a hover effect for testimonials
+      const testimonials = document.querySelectorAll(".testimonial");
+
+      testimonials.forEach((testimonial) => {
+        testimonial.addEventListener("mouseenter", () => {
+          testimonial.style.transform = "scale(1.05)";
+          testimonial.style.boxShadow = "0 6px 10px rgba(0, 0, 0, 0.15)";
+        });
+
+        testimonial.addEventListener("mouseleave", () => {
+          testimonial.style.transform = "scale(1)";
+          testimonial.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+        });
+      });
+    });
+  </script>
+</body>
+<%- include("partials/footer.ejs") %>

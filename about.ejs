@@ -1,0 +1,114 @@
+<%- include("partials/header.ejs") %>
+<style>.hero {
+  text-align: center; 
+  color:maroon;
+}
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.middle {
+  display: flex; /* Enables flex layout */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center; /* Centers child elements horizontally */
+  align-items: center; /* Aligns child elements vertically */
+  gap: 20px; /* Adds spacing between items */
+  padding: 20px;
+}
+
+.gif, .content {
+  flex: 1; /* Ensures equal space allocation */
+  max-width: 50%; /* Ensures each item takes half the width */
+  
+}
+
+.gif img, .content img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Optional styling */
+}
+.container-1{
+  display: flex; /* Enables flex layout */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  justify-content: center; /* Centers child elements horizontally */
+  align-items: center; /* Aligns child elements vertically */
+  gap: 20px; /* Adds spacing between items */
+  padding: 20px;
+}
+.box-1{     
+    margin: 20px auto; /* Centers the Box on the page */  
+    
+      } 
+.box-1 img{
+  max-width: 350px;
+}
+.box img{
+  max-width:350px;
+  height:400px;
+}
+.container-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px; /* Adds space between items for better spacing */
+}
+
+.image-1 img {
+  width: 500px;
+  height: 300px;
+}
+</style>
+<div class="hero">
+  <h2>Empowering Minds, Building Futures</h2>
+  <p>
+    Dedicated to transforming lives through quality education and skill
+    development initiatives.
+  </p>
+</div>
+
+<div class="middle">
+  <div class="gif">
+    <img src="images/gif1.gif" alt="Promotional Banner" />
+  </div>
+  <div class="content">
+    <img src="images/edu.png" alt="Promotional Banner" />
+  </div>
+</div>
+
+<div class="container-1">
+  <div class="box-1">
+    <img src="images/vision.gif" />
+  </div>
+  <div class="box">
+    <img src="images/mv.png" />
+  </div>
+  <div class="box-1">
+    <img src="images/mission.gif" />
+  </div>
+</div>
+
+<div class="director">
+  <div class="hero">
+    <h2>Meet Our Directos</h2>
+    <p>The Minds behind our vision.</p>
+  </div>
+  <br /><br />
+  <div class="container-2">
+    <div class="image-1">
+      <img src="images/SIR.png" />
+    </div>
+    <div class="image-1">
+      <img src="images/MADAM.png" />
+    </div>
+  </div>
+</div>
+<br><br><br><br>
+
+</body>
+
+<%- include("partials/footer.ejs") %>
