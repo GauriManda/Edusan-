@@ -24,7 +24,134 @@
         width: 300px;
         margin-bottom: 10px;
       }
+      * {
+      box-sizing: border-box;
+    }
 
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+      background-color: #f9f9f9;
+      color: #333;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1.display-4 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .lead {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .col-lg-7 {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .col-lg-4 {
+      flex: 0 0 40%;
+      max-width: 40%;
+      text-align: center;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 55vh; /* Reduced height */
+      overflow: hidden;
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      height: 100%;
+      background-size: contain; /* Ensures the image fits without distortion */
+      background-position: center;
+      background-repeat: no-repeat; /* Prevent tiling */
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Ensures images fit the container without distortion */
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    .carousel-button.left {
+      left: 10px;
+    }
+
+    .carousel-button.right {
+      right: 10px;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+
+      .col-lg-4 {
+        max-width: 100%;
+      }
+
+      .col-lg-7 {
+        padding: 0;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      h1.display-4 {
+        font-size: 25px;
+      }
+    }
       button {
         background-color: #4caf50;
         color: white;
@@ -116,6 +243,52 @@
     </style>
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <h1 class="display-4">Education</h1>
+          <p class="lead">
+            A newly-established not-for-profit organization, Health Awareness
+            Platform (HAP) was started by Edusan Foundation to be an enabler of
+            state-level capacity to diagnose, redesign, and strengthen
+            healthcare systems in the state, with linkages to national policy.
+            HAP’s mission is to achieve the highest level of efficiency and
+            quality in healthcare systems design in India and will provide
+            professional, rigorous, and evidence-based support to state
+            institutions. HAP will provide context-specific technical assistance
+            to design health systems that meet public health goals. It will
+            bring in technical expertise and global experience to provide
+            strategic oversight and mentorship, and engage in collaborative
+            research, executive training, and cross-learning.
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <div class="carousel">
+            <div class="carousel-slides">
+              <div
+                class="carousel-slide"
+                style="background-image: url('social/blood.jpeg')"
+              ></div>
+              <div
+                class="carousel-slide"
+                style="background-image: url('events/teacher.jpg')"
+              ></div>
+              <div
+                class="carousel-slide"
+                style="background-image: url('events/youth.jpg')"
+              ></div>
+            </div>
+            <button class="carousel-button left" onclick="goToPrevious()">
+              &#10094;
+            </button>
+            <button class="carousel-button right" onclick="goToNext()">
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <center>
       <h1><u>Offered Courses</u></h1>
     </center>
@@ -169,7 +342,26 @@
     </div>
   </div>
   <br /><br /><br /><br />
-  
+  <script>
+    let currentIndex = 0;
+    function updateCarousel() {
+      const slides = document.querySelector(".carousel-slides");
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    function goToPrevious() {
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+    function goToNext() {
+      const totalSlides = document.querySelectorAll(".carousel-slide").length;
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    } // Auto-play functionality
+    setInterval(() => {
+      goToNext();
+    }, 3000);
+  </script>
   </body>
  
 
